@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+<title>String Comparison</title>
+</head>
+<body>
+<h1>String Comparison</h1>
+<label for="string1">Enter the first string:</label>
+<input type="text" id="string1" /><br />
+<label for="string2">Enter the second string:</label>
+<input type="text" id="string2" /><br />
+<button onclick="compareStrings()">Compare</button><br />
+<h2>Results:</h2>
+<p id="result1"></p>
+<p id="result2"></p>
+<p id="result3"></p>
+<script>
+function compareStrings() {
+const string1 = document.getElementById("string1").value;
+const string2 = document.getElementById("string2").value;
+const result1Element = document.getElementById("result1");
+const result2Element = document.getElementById("result2");
+const result3Element = document.getElementById("result3");
+const isEqual1 = string1 === string2;
+result1Element.textContent =
+"Method 1 - Using === operator: " + isEqual1;
+const isEqual2 = string1.localeCompare(string2) === 0;
+result2Element.textContent =
+"Method 2 - Using localeCompare method: " + isEqual2;
+function customCompareStrings(str1, str2) {
+return str1 === str2;
+}
+const isEqual3 = customCompareStrings(string1, string2);
+result3Element.textContent =
+"Method 3 - Using custom function: " + isEqual3;
+}
+</script>
+</body>
