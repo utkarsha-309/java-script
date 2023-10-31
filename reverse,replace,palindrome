@@ -1,0 +1,52 @@
+1.	Replace a string:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+<title>String Replacement</title>
+</head>
+<body>
+<h1>String Replacement</h1>
+<label for="originalString">Enter a string:</label>
+<input type="text" id="originalString" />
+<br />
+<label for="searchString">Enter the substring to replace:</label>
+<input type="text" id="searchString" />
+<br />
+<label for="replaceString">Enter the replacement string:</label>
+<input type="text" id="replaceString" />
+<br />
+<button onclick="replaceString()">Replace</button>
+<h2>Result:</h2>
+<p id="result"></p>
+<script>
+function replaceString() {
+const originalString = document.getElementById("originalString").value;
+const searchString = document.getElementById("searchString").value;
+const replaceString = document.getElementById("replaceString").value;
+const resultElement = document.getElementById("result");
+if (originalString && searchString) {
+const newString = originalString.replace(
+new RegExp(searchString, "g"),
+replaceString
+);
+resultElement.textContent = newString;
+} else {
+resultElement.textContent =
+"Please enter a valid original string and search string.";
+}
+}
+</script>
+</body>
+</html>
+
+</body>
+</html>
+
