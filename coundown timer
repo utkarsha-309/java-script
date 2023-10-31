@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+<title>Countdown Timer</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #f4f4f4;
+margin: 0;
+padding: 0;
+}
+
+h1 {
+color: #333;
+}
+
+#timer {
+font-size: 24px;
+font-weight: bold;
+color: #007bff;
+margin: 20px 0;
+}
+</style>
+</head>
+<body>
+<h1>Countdown Timer</h1>
+<div id="timer"></div>
+<script>
+// Set the target date and time for the countdown
+const targetDate = new Date("2023-12-31T23:59:59").getTime();
+// Update the countdown every second
+const timerInterval = setInterval(updateCountdown, 1000);
+function updateCountdown() {
+// Get the current date and time
+const currentDate = new Date().getTime();
+
+// Calculate the remaining time in milliseconds
+const timeRemaining = targetDate - currentDate;
+// Calculate the days, hours, minutes, and seconds
+const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+// Display the countdown timer
+const timerElement = document.getElementById("timer");
+timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+// Check if the countdown has reached zero
+if (timeRemaining <= 0) {
+clearInterval(timerInterval);
+timerElement.innerHTML = "Countdown expired!";
+}
+}
+</script>
+</body>
+</html>
