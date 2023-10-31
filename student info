@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h3>Calculator</h3>
+<input id ="text1" placeholder = "Enter Num1">
+<br>
+<br>
+<br>
+<input id ="text2" placeholder = "Enter Num2">
+<br>
+<br>
+<br>
+<button onclick="sum()" id = "btnl">Add</button>
+<button onclick="diff()" id = "btnl">Sub</button>
+<button onclick="mul()" id = "btnl">Mult</button>
+<button onclick="div()" id = "btnl">Div</button>
+<br>
+<br>
+<br> 
+<input id = "text3" placeholder = "result">
+<script>
+function sum(){
+var x = parseFloat(document.getElementById("text1").value);
+var y = parseFloat(document.getElementById("text2").value);
+var s1 = x + y;
+document.getElementById("text3").value = s1;
+alert(s1);
+}
+function diff(){
+var x = parseFloat(document.getElementById("text1").value);
+var y = parseFloat(document.getElementById("text2").value);
+var s2 = x - y;
+document.getElementById("text3").value = s2;
+alert(s2);
+}
+function mul(){
+var x = parseFloat(document.getElementById("text1").value);
+var y = parseFloat(document.getElementById("text2").value);
+var s3 = x * y;
+document.getElementById("text3").value = s3;
+alert(s3);
+}
+function div(){
+var x = parseFloat(document.getElementById("text1").value);
+var y = parseFloat(document.getElementById("text2").value);
+var s4 = x / y;
+document.getElementById("text3").value = s4;
+alert(s4);
+}
+
+</script>
+</body>
+</html>
+
+Output:
