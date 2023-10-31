@@ -1,0 +1,65 @@
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript Practical</h1>
+    <script> var array=[];
+    var x=prompt('Enter the size of array');
+    for(i=0;i<x;i++)
+    {
+        array[i]=prompt("Enter array element"+(i+1));
+    }
+    for(i=0;i<x;i++)
+    {
+        document.write("The element at position"+(i)+"is:"+ array[i]+"<br></br>");
+    }
+    var removeEle=prompt("Enter array element to delete");
+    function removeElement(removeEle)
+    {
+        for(i=0;i<x;i++)
+        {
+            if(array[i]==removeEle)
+            {
+                delete array[i];
+            }
+            else
+            {
+
+            }
+            console.log('Element not found');   
+        }
+        removeElement(removeEle);
+        for(i=0;i<x;i++)
+        {
+            document.write("The element at position"+(i)+"is:"+array[i]+"<br></br>");
+        }
+        function searchElement(seaElerch)
+        {
+            let pre= array.includes(searchEle);
+            if(pres==true)
+            {
+                document.write("Element"+searchEle+"present in the s=array<br></br>");
+                let pres=false;
+            }
+            else
+            {
+            document.write("Element"+searchEle+"not present in the arrray<br></br>");
+            }
+            searchElement(searchEle);
+            array.splice(0,array.length);
+            if(array.length==0)
+            {
+            document.write("Array is empty now using splice method")
+            }
+            document.write(array);
+        }
+
+    }
+    </script>
+</body>
+</html>
