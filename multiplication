@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>  Multiplication table</title>
+<h3> Multiplication Table and Testing NaN</h3>
+<p> Please perform testing NaN first </p>
+
+<button onclick="tNaN()" id = "btnl">Test NaN</button>
+<BR></BR>
+
+<input id ="text" placeholder = "Enter Number">
+<button onclick="mtable()" id = "btnl">Generate Multiplication Table</button>
+
+
+<script>
+function tNaN(){
+// The parseInt method parses a value as a string and returns the first integer.
+
+const n1 = parseInt(prompt("Enter an integer to test"));
+const s1 = prompt("Enter a character string to test");
+const n2 = n1/0;
+console.log("n1/0 is " + n2);
+const n3 = -n1/0;
+console.log("-n1/0 is" + n3);
+const n4 = s1/2;
+console.log("s1/2 is " +n4);
+}
+//
+
+function mtable(){
+var num = parseInt(document.getElementById("text").value);
+//creating a multiplication table
+
+for(let i = 1; i <= 10; i++) {
+
+    // multiply i with number
+    const result = i * num;
+
+    // display the result
+    console.log("<br>" + num + " " + "*" + " " + i + " " + "=" + " " + result);
+    document.write( "<br>" + num + " " + "*" + " " + i + " " + "=" + " " + result);
+}
+}
+</script>
+
+</head>
+</html>
