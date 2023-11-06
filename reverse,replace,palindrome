@@ -1,52 +1,110 @@
-1.	Replace a string:
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html>
-<head>
-<title>String Replacement</title>
-</head>
-<body>
-<h1>String Replacement</h1>
-<label for="originalString">Enter a string:</label>
-<input type="text" id="originalString" />
-<br />
-<label for="searchString">Enter the substring to replace:</label>
-<input type="text" id="searchString" />
-<br />
-<label for="replaceString">Enter the replacement string:</label>
-<input type="text" id="replaceString" />
-<br />
-<button onclick="replaceString()">Replace</button>
-<h2>Result:</h2>
-<p id="result"></p>
-<script>
-function replaceString() {
-const originalString = document.getElementById("originalString").value;
-const searchString = document.getElementById("searchString").value;
-const replaceString = document.getElementById("replaceString").value;
-const resultElement = document.getElementById("result");
-if (originalString && searchString) {
-const newString = originalString.replace(
-new RegExp(searchString, "g"),
-replaceString
-);
-resultElement.textContent = newString;
-} else {
-resultElement.textContent =
-"Please enter a valid original string and search string.";
-}
-}
-</script>
-</body>
-</html>
+1. Replace a string: 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+</head> 
+<body> 
+    <!DOCTYPE html> 
+<html> 
+<head> 
+<title>String Replacement</title> 
+</head> 
+<body> 
+<h1>String Replacement</h1> 
+<label for="originalString">Enter a string:</label> 
+<input type="text" id="originalString" /> 
+<br /> 
+<label for="searchString">Enter the substring to replace:</label> 
+<input type="text" id="searchString" /> 
+<br /> 
+<label for="replaceString">Enter the replacement string:</label> 
+<input type="text" id="replaceString" /> 
+<br /> 
+<button onclick="replaceString()">Replace</button> 
+<h2>Result:</h2> 
+<p id="result"></p> <script> function replaceString() { 
+const originalString = document.getElementById("originalString").value; const searchString = document.getElementById("searchString").value; const replaceString = document.getElementById("replaceString").value; const resultElement = document.getElementById("result"); if (originalString && searchString) { const newString = originalString.replace( new RegExp(searchString, "g"), replaceString 
+); 
+resultElement.textContent = newString; 
+} else { resultElement.textContent = 
+"Please enter a valid original string and search string."; 
+} 
+} 
+</script> 
+</body> 
+</html> 
+ 
+</body> </html> 
+ 
+  
+ 
+2. Reverse a string: 
+ 
+<html> 
+<head> 
+<title>Program to reverse a string using built in method</title> 
+</head> 
+<body> <script> 
+const string = prompt("Enter the string"); function fun(str) { 
+const a = str.split(""); const b = a.reverse(); const c = b.join(""); return c; } 
+const result = fun(string); document.write(result); 
+</script> 
+</body> 
+</html> 
 
-</body>
-</html>
+  
+3.  Palindrome: 
+<!DOCTYPE html> 
+  <html lang="en"> 
+  <head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+    <style>        
+      .h1 {text-align:center;
+           padding:30px;             
+           background-color:blue; 
+            color:white; 
+        } 
+      .palin{margin: 30px;     
+             width: 80%;     
+             border:3px solid rgb(138,9,9);     
+             border-radius:5px;    
+            padding:30px; 
+            } 
+            #pa{width:50%;   
+                border:3px solid orangered;        
+                border-radius: 5px;            
+                padding:10px; 
+            } 
+ </style> 
+  </head> 
+  <body> 
+    <h1>"Palindrome program in js"</h1> 
+    <div class="palin"> 
+        <label> Entert any string or number:</label> 
+        <input id="pa"> <br><br> 
+        <label> Resultant string:</label> 
+        <input id="pa2"><br><br> 
+        <input type="submit" onclick="palindrome()"><br> 
+ 
+    </div> 
+    <script> 
+     function palindrome(){   
+      var a= document.getElementById("pa").value; 
+      var b="";
+      for(let i = a.length-1;i>=0;i--){  
+       b+=a[i]; 
+        }  if(a==b) 
+    document.getElementById("pa2").value =b+" is a palindrome";
+     else 
+        document.getElementById("pa2").value =b+" is not a palindrome"; 
+    } 
+    </script> 
+  </body> 
+</html> 
+ 
 
