@@ -1,80 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        var array=[];
-        var x = prompt("Enter the size of array");
-        for(i=0;i<x;i++)
-        {
-            array[i]=prompt("Enter array element"+(i+1));
-        }
-        for(i=0;i<x;i++)
-        {
-            document.write("The element at position"+(i)+"is:"+array[i]+"<br></br>");
-        }
-        function pushFunc(arr,obj)
-        {
-            arr.push(obj);
-            console.log(arr);
-            document.write("using push method:" +arr+"<br></br>");
-
-        }
-        let obj1=["java","script"];
-        pushFunc(array,obj1);
-
-        function checkObject(arr)
-        {
-            const result= Array.isArray(arr);
-            if(result)
-            {
-                console.log('[arr] is an array');
-                document.write("This is an array<br></br");
-            }
-            else
-            {
-                console.log("[arr] is not an array");
-                document.write("This is not an array</br></br>");
-            }
-        }
-        checkObject(array);
-        console.log(array);
-
-
-        function spliceFunc(arr,obj2)
-        {
-        let index= arr.length;
-        arr.splice(2,0,obj2);
-        console.log(arr);
-        document.write("splicing at index 2:" +arr+"</br></br>");
-        }
-
-        let obj2=['we','like'];
-        spliceFunc(array,obj2);
-
-        function unshiftFunc(arr,obj)
-        {
-            arr.unshift(obj);
-            console.log(arr);
-            document.write('Using unshift method:'+arr+"</br></br>");
-        }
-
-        let obj3=['We',"learn","and"];
-        unshiftFunc(array,obj3);
-        function spreadOperator(arr,obj)
-        {
-            arr=[...arr,obj4];
-            console.log(arr);
-            document.write("Using spread operator:"+arr+"</br></br>");
-        }
-        let obj4=["program","ended"];
-        spreadOperator(array,obj4);
-
-    </script>
-</body>
-</html>
-Output:
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Append Object to Array</title> 
+</head> 
+<body> 
+    <h1>Append Object to Array and Check if It's an Array</h1> 
+    <label for="arrayInput">Enter an array:</label> 
+    <input type="text" id="arrayInput"> 
+    <br> 
+    <label for="objectInput">Enter an object:</label> 
+    <input type="text" id="objectInput"> 
+    <br> 
+    <button onclick="appendObject()">Append Object to Array</button> 
+    <button onclick="checkIsArray()">Check if Object is an Array</button> 
+    <p id="output"></p> 
+ 
+    <script> 
+            let myArray = [];  
+             let objectToAppend = {}; 
+ 
+        function appendObject() { 
+            const arrayInput = document.getElementById('arrayInput').value; 
+            const objectInput = document.getElementById('objectInput').value; 
+ 
+            try { 
+                myArray = JSON.parse(arrayInput); 
+                objectToAppend = JSON.parse(objectInput); 
+ 
+                if (Array.isArray(myArray)) { 
+                    myArray.push(objectToAppend);   
+                    document.getElementById('output').innerHTML = 'Object appended to the array: ' + JSON.stringify(myArray); 
+                } else { 
+                    document.getElementById('output').innerHTML = 'The provided input is not an array.'; 
+                } 
+            } catch (error) { 
+                document.getElementById('output').innerHTML = 'Invalid input. Please enter valid JSON.'; 
+            } 
+        } 
+        function checkIsArray() { 
+            const isArray = Array.isArray(myArray); 
+            document.getElementById('output').innerHTML = 'Is the object an array? ' + isArray; 
+        } 
+    </script> 
+</body> 
+</html> 
