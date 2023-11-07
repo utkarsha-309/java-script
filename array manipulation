@@ -1,65 +1,74 @@
-Code:
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Javascript Practical</h1>
-    <script> var array=[];
-    var x=prompt('Enter the size of array');
-    for(i=0;i<x;i++)
-    {
-        array[i]=prompt("Enter array element"+(i+1));
-    }
-    for(i=0;i<x;i++)
-    {
-        document.write("The element at position"+(i)+"is:"+ array[i]+"<br></br>");
-    }
-    var removeEle=prompt("Enter array element to delete");
-    function removeElement(removeEle)
-    {
-        for(i=0;i<x;i++)
-        {
-            if(array[i]==removeEle)
-            {
-                delete array[i];
-            }
-            else
-            {
-
-            }
-            console.log('Element not found');   
-        }
-        removeElement(removeEle);
-        for(i=0;i<x;i++)
-        {
-            document.write("The element at position"+(i)+"is:"+array[i]+"<br></br>");
-        }
-        function searchElement(seaElerch)
-        {
-            let pre= array.includes(searchEle);
-            if(pres==true)
-            {
-                document.write("Element"+searchEle+"present in the s=array<br></br>");
-                let pres=false;
-            }
-            else
-            {
-            document.write("Element"+searchEle+"not present in the arrray<br></br>");
-            }
-            searchElement(searchEle);
-            array.splice(0,array.length);
-            if(array.length==0)
-            {
-            document.write("Array is empty now using splice method")
-            }
-            document.write(array);
-        }
-
-    }
-    </script>
-</body>
-</html>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <title>Array Operations</title> 
+</head> 
+<body> 
+    <h1> Array Operations</h1> 
+    <form id="arrayForm"> 
+        <label for="arraySize">Enter the size of the array: </label> 
+        <input type="number" id="arraySize" required> 
+        <button type="button" onclick="initializeArray()">Create Array</button>     </form> 
+ 
+    <div id="arrayOperations" style="display: none;"> 
+        <h2>Array Operations</h2> 
+        <div id="arrayElements"></div> 
+ 
+        <label for="removeElement">Enter element to remove: </label> 
+        <input type="text" id="removeElement"> 
+        <button type="button" onclick="removeElement()">Remove Element</button> 
+        <p id="removeResult"></p> 
+ 
+        <label for="searchElement">Enter element to find: </label> 
+        <input type="text" id="searchElement"> 
+        <button type="button" onclick="searchElement()">Search Element</button> 
+        <p id="searchResult"></p> 
+ 
+        <button type="button" onclick="emptyArray()">Empty Array</button> 
+        <p id="emptyResult"></p> 
+    </div> 
+ 
+    <script>         var array = []; 
+ 
+        function initializeArray() { 
+            var x = document.getElementById("arraySize").value;             for (i = 0; i < x; i++) { 
+                var element = prompt('Enter array Element ' + (i + 1));                 array.push(element); 
+            } 
+ 
+            displayArray(); 
+        } 
+ 
+        function displayArray() { 
+            var arrayElements = document.getElementById("arrayElements");             arrayElements.innerHTML = "Array Elements: <br>"; 
+ 
+            for (i = 0; i < array.length; i++) { 
+                arrayElements.innerHTML += "The element at position " + i + " is : " + array[i] + "<br>"; 
+            } 
+ 
+            var arrayOperations = document.getElementById("arrayOperations");             arrayOperations.style.display = "block"; 
+        } 
+ 
+        function removeElement() { 
+            var removeEle = document.getElementById("removeElement").value;             var index = array.indexOf(removeEle); 
+ 
+            if (index !== -1) {                 array.splice(index, 1);                 displayArray();                 document.getElementById("removeResult").innerText = "Element removed from the array."; 
+            } else { 
+                document.getElementById("removeResult").innerText = "Element not found in the array."; 
+            } 
+        } 
+ 
+        function searchElement() { 
+            var searchEle = document.getElementById("searchElement").value;             if (array.includes(searchEle)) { 
+                document.getElementById("searchResult").innerText = "Element " + searchEle + " present in the array."; 
+            } else { 
+                document.getElementById("searchResult").innerText = "Element " + searchEle + " not present in the array."; 
+            } 
+        } 
+ 
+        function emptyArray() { 
+            array = [];             displayArray(); 
+            document.getElementById("emptyResult").innerText = "Array is now empty."; 
+        } 
+    </script> 
+</body> 
+</html> 
